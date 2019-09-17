@@ -1,5 +1,3 @@
-import { notStrictEqual } from "assert"
-
 export const findFolder = (folders=[], folderId) =>
   folders.find(folder => folder.id === folderId)
 
@@ -12,5 +10,5 @@ export const getNotesForFolder = (notes=[], folderId) => (
   : notes.filter(note => note.folderId === folderId)
 )
 
-export const countNotesForFolder = (notes=[, folderId]) =>
+export const countNotesForFolder = (notes=[], folderId) =>
   notes.filter(note => note.folderId === folderId).length

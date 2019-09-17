@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CircleButton from '../CircleButton/CircleButton'
-import './NotePageNav/NotePageNav'
+import './NotePageNav.css'
 
 function NotePageNav(props) {
   return (
