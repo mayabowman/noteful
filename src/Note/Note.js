@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
-// import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import './Note.css';
 
 function Note(props) {
@@ -13,7 +13,7 @@ function Note(props) {
         </Link>
       </h2>
       <button className='Note__delete' type='button'>
-        {/* <FontAwesomeIcon icon='trash-alt' /> */}
+        <FontAwesomeIcon icon='trash-alt' />
         {' '}
       </button>
       <div className='Note__dates'>
