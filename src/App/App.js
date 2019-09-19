@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   renderNavRoutes() {
-    const {notes, folders} = this.setState;
+    const { notes, folders } = this.state;
     return (
       <>
         {['/', '/folder/:folderId'].map(path => (
