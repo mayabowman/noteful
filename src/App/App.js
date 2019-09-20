@@ -16,10 +16,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const { folders, notes } = this.state;
     Promise.all([
-      fetch(`${config.API_ENDPOINT/notes}`),
-      fetch(`${config.API_ENDPOINT/folders}`)
+      fetch(`${config.API_ENDPOINT}/notes`),
+      fetch(`${config.API_ENDPOINT}/folders`)
     ])
       .then(([notesRes, foldersRes]) => {
         if (!notesRes.ok)
