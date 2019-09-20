@@ -53,7 +53,7 @@ class Note extends React.Component {
             Modified
             {' '}
             <span className='Date'>
-              {new Date(props.modified).getFullYear() + '/' + (new Date(props.modified).getMonth() + 1) + '/' + new Date(props.modified).getDate()}
+              {new Date(modified).getFullYear() + '/' + (new Date(modified).getMonth() + 1) + '/' + new Date(modified).getDate()}
             </span>
           </div>
         </div>

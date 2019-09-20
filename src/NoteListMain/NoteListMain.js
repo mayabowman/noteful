@@ -49,8 +49,4 @@ class NoteListMain extends React.Component {
   }
 }
 
-NoteListMain.defaultProps = {
-  notes: [],
-}
-
 export default NoteListMain;

@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CircleButton from '../CircleButton/CircleButton'
 import NotefulContext from '../NotefulContext'
-import { findNote, findFolder } from 'notes-helpers'
+import { findNote, findFolder } from '../notes-helpers'
 import './NotePageNav.css'
 
 class NotePageNav extends React.Component {
@@ -33,7 +33,7 @@ class NotePageNav extends React.Component {
           <br />
           Back
         </CircleButton>
-        {props.folder && (
+        {folder && (
           <h3 className='NotePageNav__folder-name'>
             {folder.name}
           </h3>
