@@ -19,6 +19,8 @@ class NoteListMain extends React.Component {
     const { folderId } = this.props.match.params
     const { notes=[] } = this.context
     const notesForFolder = getNotesForFolder(notes, folderId)
+    console.log(notes)
+    console.log(folderId)
     return (
       <section className='NoteListMain'>
         <ul>
