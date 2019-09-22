@@ -10,7 +10,7 @@ class NoteListNav extends React.Component {
   static contextType = NotefulContext
 
   render() {
-    const { folders=[], notes=[] } = this.context
+    const { folders, notes } = this.context
     return (
       <div className='NoteListNav'>
         <ul className='NoteListNav__list'>
