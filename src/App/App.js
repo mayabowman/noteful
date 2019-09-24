@@ -8,6 +8,7 @@ import NotePageMain from '../NotePageMain/NotePageMain'
 import NotefulContext from '../NotefulContext'
 import config from '../config'
 import './App.css';
+import AddFolder from '../AddFolder/AddFolder'
 
 class App extends React.Component {
   state = {
@@ -71,6 +72,7 @@ class App extends React.Component {
           />
         ))}
         <Route path='/note/:noteId' component={NotePageMain} />
+        <Route path='/add-folder' component={AddFolder} />
       </>
     );
   }
