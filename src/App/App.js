@@ -48,6 +48,12 @@ class App extends React.Component {
     })
   }
 
+  handleAddNote = note => {
+    this.setState({
+      notes: [...this.state.notes, note]
+    })
+  }
+
   renderNavRoutes() {
     return (
       <>
@@ -88,7 +94,8 @@ class App extends React.Component {
       notes: this.state.notes,
       folders: this.state.folders,
       deleteNote: this.handleDeleteNote,
-      addFolder: this.handleAddFolder
+      addFolder: this.handleAddFolder,
+      addNote: this.handleAddNote
     };
 
     return (
