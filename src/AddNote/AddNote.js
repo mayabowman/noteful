@@ -15,7 +15,7 @@ handleSubmit = e => {
   e.preventDefault();
   const newNote = {
     note: e.target['note-name'].value,
-    content: e.target['note-content'],
+    content: e.target['note-content'].value,
     folderId: e.target['note-folder-id'].value,
     modified: new Date()
   }
