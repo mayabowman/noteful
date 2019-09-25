@@ -17,7 +17,7 @@ class NoteListNav extends React.Component {
           {folders.map(folder => 
             <li key={folder.id}>
               <NavLink
-                className='NoteListNave__folder-link'
+                className='NoteListNav__folder-link'
                 to={`/folder/${folder.id}`}
               >
                 <span className='NoteListNav__num-notes'>
