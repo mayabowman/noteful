@@ -2,7 +2,6 @@ import React from 'react'
 import Note from '../Note/Note'
 import NotefulContext from '../NotefulContext'
 import { findNote } from '../notes-helpers'
-import './NotePageMain.css'
 
 class NotePageMain extends React.Component {
   static defaultProps = {

@@ -1,5 +1,4 @@
 import React from 'react'
-import './CircleButton.css'
 
 function NavCircleButton(props) {
   const { tag, className, children, ...otherProps} = props

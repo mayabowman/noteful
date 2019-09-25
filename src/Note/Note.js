@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import NotefulContext from '../NotefulContext'
 import config from '../config' 
-import './Note.css';
 
 class Note extends React.Component {
   static defaultProps = {

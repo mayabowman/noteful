@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CircleButton from '../CircleButton/CircleButton'
 import NotefulContext from '../NotefulContext'
 import { findNote, findFolder } from '../notes-helpers'
-import './NotePageNav.css'
 
 class NotePageNav extends React.Component {
   static defaultProps = {
