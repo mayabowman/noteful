@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { format } from 'date-fns'
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import NotefulContext from '../NotefulContext'
 import config from '../config' 
+import PropTypes from 'prop-types'
 
 class Note extends React.Component {
   static defaultProps = {
@@ -59,6 +59,12 @@ class Note extends React.Component {
       </div>
     )
   }
+}
+
+Note.propTypes = {
+  name: PropTypes.string,
+  id: PropTypes.string,
+  modified: PropTypes.string
 }
 
 export default Note;

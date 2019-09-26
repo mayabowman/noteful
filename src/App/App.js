@@ -9,6 +9,7 @@ import NotefulContext from '../NotefulContext'
 import config from '../config'
 import AddFolder from '../AddFolder/AddFolder'
 import AddNote from '../AddNote/AddNote'
+import ErrorBoundary from '../ErrorBoundary'
 import '../index.css'
 
 class App extends React.Component {
@@ -101,18 +102,20 @@ class App extends React.Component {
     };
 
     return (
-      <NotefulContext.Provider value={value}>
-        <div className='App'>
-          <nav className='App__nav'>{this.renderNavRoutes()}</nav>
-          <header className='App__header'>
-            <h1>
-              <Link to='/'>Noteful</Link>{' '}
-            <FontAwesomeIcon icon='check-double' />
-            </h1>
-          </header>
-          <main className='App__main'>{this.renderMainRoutes()}</main>
-        </div>
-      </NotefulContext.Provider>
+      <ErrorBoundary>
+        <NotefulContext.Provider value={value}>
+          <div className='App'>
+            <nav className='App__nav'>{this.renderNavRoutes()}</nav>
+            <header className='App__header'>
+              <h1>
+                <Link to='/'>Noteful</Link>{' '}
+              <FontAwesomeIcon icon='check-double' />
+              </h1>
+            </header>
+            <main className='App__main'>{this.renderMainRoutes()}</main>
+          </div>
+        </NotefulContext.Provider>
+      </ErrorBoundary>
     );
   }
 }

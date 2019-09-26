@@ -1,6 +1,7 @@
 import React from 'react'
 import config from '../config'
 import NotefulContext from '../NotefulContext'
+import PropTypes from 'prop-types'
 
 class AddNote extends React.Component {
   static defaultProps = {
@@ -14,10 +15,10 @@ static contextType = NotefulContext;
 handleSubmit = e => {
   e.preventDefault();
   const newNote = {
-    note: e.target['note-name'].value,
-    content: e.target['note-content'].value,
+    name: e.target['note-name'].value,
     folderId: e.target['note-folder-id'].value,
-    modified: new Date()
+    modified: new Date(),
+    content: e.target['note-content'].value
   }
   fetch(`${config.API_ENDPOINT}/notes`, {
     method: 'POST',
@@ -32,8 +33,10 @@ handleSubmit = e => {
     return res.json()
   })
   .then(note => {
+    newNote.id = note.id
     this.context.addNote(newNote)
     this.props.history.push(`/folder/${note.folderId}`)
+    console.log("props", this.props)
   })
   .catch(error => {
     console.error({ error })
@@ -70,6 +73,10 @@ handleSubmit = e => {
       </form>
     )
   }
+}
+
+AddNote.propTypes = {
+  id: PropTypes.string
 }
 
 export default AddNote
