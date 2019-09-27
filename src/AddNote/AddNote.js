@@ -50,11 +50,23 @@ handleSubmit = e => {
         <h2>Create a Note</h2>
         <div className='name-field'>
           <label htmlFor='note-name'>Note Name: </label>
-          <input type='text' className='new-note' name='note-name' id='note-name' />
+          <input 
+            type='text' 
+            className='new-note' 
+            name='note-name' 
+            id='note-name' 
+            required
+          />
         </div>
         <div className='content-field'>
           <label htmlFor='note-content'>Content: </label>
-          <input type='text' className='new-note-content' name='note-content' id='note-content' />
+          <input 
+            type='text' 
+            className='new-note-content' 
+            name='note-content' 
+            id='note-content' 
+            required
+          />
         </div>
         <div className='select-field'>
           <label htmlFor='select-folder'>
