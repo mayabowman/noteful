@@ -77,7 +77,7 @@ handleSubmit = e => {
             id='select-folder' 
             name='note-folder-id'
             onChange={e => this.context.folders = e.target.value || null}
-            value={this.context.folders}
+            value={this.context.folders || ' '}
           >
             <option value=''>...</option>
               {folders.map(folder => 
