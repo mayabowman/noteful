@@ -25,7 +25,8 @@ class AddFolder extends React.Component {
         return res.json().then(e => Promise.reject(e))
       return res.json()
     })
-    .then(() => {
+    .then((folder) => {
+      newFolder.id = folder.id
       this.context.addFolder(newFolder)
     })
     .catch(error => {
@@ -34,8 +35,6 @@ class AddFolder extends React.Component {
   }
 
   render() {
-    // const { notes, folders } = this.context
-    // const { noteId } = this.props.match.params
 
     return (
       <form className='AddFolder' onSubmit={this.handleSubmit}>
