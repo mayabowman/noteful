@@ -20,27 +20,32 @@ handleSubmit = e => {
     modified: new Date(),
     content: e.target['note-content'].value
   }
-  fetch(`${config.API_ENDPOINT}/notes`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify(newNote),
-  })
-  .then(res => {
-    if(!res.ok)
-      return res.json().then(e => Promise.reject(e))
-    return res.json()
-  })
-  .then(note => {
-    newNote.id = note.id
-    this.context.addNote(newNote)
-    this.props.history.push(`/folder/${note.folderId}`)
-    console.log("props", this.props)
-  })
-  .catch(error => {
-    console.error({ error })
-  })
+
+  if(!e.target['note-folder-id'].value) {
+    window.alert('Please select a folder')
+  } else{
+    fetch(`${config.API_ENDPOINT}/notes`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newNote),
+    })
+    .then(res => {
+      if(!res.ok)
+        return res.json().then(e => Promise.reject(e))
+      return res.json()
+    })
+    .then(note => {
+      newNote.id = note.id
+      this.context.addNote(newNote)
+      this.props.history.push(`/folder/${note.folderId}`)
+      console.log("props", this.props)
+    })
+    .catch(error => {
+      console.error({ error })
+    })
+  }
 }
 
   render() {
@@ -76,8 +81,8 @@ handleSubmit = e => {
             required 
             id='select-folder' 
             name='note-folder-id'
-            onChange={e => this.context.folders = e.target.value || null}
-            value={this.context.folders || ' '}
+            onChange={e => this.context.folder = e.target.value || null}
+            value={null}
           >
             <option value=''>...</option>
               {folders.map(folder => 
