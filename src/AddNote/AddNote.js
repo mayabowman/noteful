@@ -72,8 +72,14 @@ handleSubmit = e => {
           <label htmlFor='select-folder'>
             Choose Folder: 
           </label>
-          <select id='select-folder' name='note-folder-id'>
-            <option value={null}>...</option>
+          <select 
+            required 
+            id='select-folder' 
+            name='note-folder-id'
+            onChange={e => this.context.folders = e.target.value || null}
+            value={this.context.folders}
+          >
+            <option value=''>...</option>
               {folders.map(folder => 
                 <option key={folder.id} value={folder.id}>
                   {folder.name}

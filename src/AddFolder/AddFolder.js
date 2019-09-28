@@ -4,7 +4,7 @@ import NotefulContext from '../NotefulContext'
 
 class AddFolder extends React.Component {
   static defaultProps = {
-    addFolder: () => {},
+    addFolder: () => {}
   }
   static contextType = NotefulContext;
 
@@ -28,6 +28,7 @@ class AddFolder extends React.Component {
     .then((folder) => {
       newFolder.id = folder.id
       this.context.addFolder(newFolder)
+      this.props.history.push('/')
     })
     .catch(error => {
       console.error({ error })
