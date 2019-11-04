@@ -13,8 +13,8 @@ class Note extends React.Component {
 
   handleClickDelete = e => {
     e.preventDefault()
-    const noteId = this.props.id
-    fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
+    const note_id = this.props.id
+    fetch(`${config.API_ENDPOINT}/notes/${note_id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'
@@ -26,8 +26,8 @@ class Note extends React.Component {
       return res.json()
     })
     .then(() => {
-      this.context.deleteNote(noteId)
-      this.props.onDeleteNote(noteId)
+      this.context.deleteNote(note_id)
+      this.props.onDeleteNote(note_id)
     })
     .catch(error => {
       console.error({ error })
