@@ -17,8 +17,8 @@ class NotePageMain extends React.Component {
   }
   render() {
     const { notes=[] } = this.context
-    const { note_id } = this.props.match.params
-    const note = findNote(notes, note_id) || { content: ''}
+    const { noteId } = this.props.match.params
+    const note = findNote(notes, noteId) || { content: ''}
     return (
       <section className='NotePageMain'>
         <Note
