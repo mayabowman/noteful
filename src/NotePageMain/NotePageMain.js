@@ -12,13 +12,16 @@ class NotePageMain extends React.Component {
   }
   static contextType = NotefulContext
 
-  handleDeleteNote = note_id => {
+  handleDeleteNote = () => {
     this.props.history.push('/')
   }
   render() {
     const { notes=[] } = this.context
-    const { noteId } = this.props.match.params
-    const note = findNote(notes, noteId) || { content: ''}
+    const { id } = this.props.match.params
+    const note = findNote(notes, id) || { content: ''}
+    console.log('context notes', this.context.notes.id)
+    console.log('notes', notes)
+    
     return (
       <section className='NotePageMain'>
         <Note
@@ -38,7 +41,7 @@ class NotePageMain extends React.Component {
 }
 
 NotePageMain.propTypes = {
-  note_id: PropTypes.string
+  id: PropTypes.string
 }
 
 export default NotePageMain;

@@ -38,9 +38,9 @@ class App extends React.Component {
       });
   }
 
-  handleDeleteNote = note_id => {
+  handleDeleteNote = id => {
     this.setState({
-      notes: this.state.notes.filter(note => note.id !== note_id)
+      notes: this.state.notes.filter(note => note.id !== id)
     });
   };
 
@@ -67,7 +67,7 @@ class App extends React.Component {
             component={NoteListNav}
           />
         ))}
-        <Route path='/note/:note_id'component={NotePageNav} />
+        <Route path='/note/:id'component={NotePageNav} />
         <Route path='/add-folder' component={NotePageNav} />
         <Route path='/add-note' component={NotePageNav} />
       </>
@@ -85,7 +85,7 @@ class App extends React.Component {
             component={NoteListMain}
           />
         ))}
-        <Route path='/note/:note_id' component={NotePageMain} />
+        <Route path='/note/:id' component={NotePageMain} />
         <Route path='/add-folder' component={AddFolder} />
         <Route path='/add-note' component={AddNote} />
       </>
