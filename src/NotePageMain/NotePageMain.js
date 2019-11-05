@@ -21,6 +21,7 @@ class NotePageMain extends React.Component {
     const note = findNote(notes, id) || { content: ''}
     console.log('context notes', this.context.notes.id)
     console.log('notes', notes)
+    console.log('id', id)
     
     return (
       <section className='NotePageMain'>
