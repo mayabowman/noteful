@@ -15,8 +15,8 @@ static contextType = NotefulContext;
 handleSubmit = e => {
   e.preventDefault();
   const newNote = {
-    name: e.target['note-name'].value,
-    folderId: e.target['note-folder-id'].value,
+    note_name: e.target['note-name'].value,
+    folder_id: e.target['note-folder-id'].value,
     modified: new Date(),
     content: e.target['note-content'].value
   }

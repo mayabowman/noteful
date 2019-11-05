@@ -35,7 +35,6 @@ class Note extends React.Component {
   }
   render() {
     const { name, id, modified } = this.props
-    console.log('props', this.props)
     
     return (
       <div className='Note'>
