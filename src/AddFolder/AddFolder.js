@@ -11,7 +11,7 @@ class AddFolder extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const newFolder = {
-      name: e.target['folder-name'].value
+      folder_name: e.target['folder-name'].value
     }
     fetch(`${config.API_ENDPOINT}/folders`, {
       method: 'POST',
