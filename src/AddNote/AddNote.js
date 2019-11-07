@@ -39,7 +39,7 @@ handleSubmit = e => {
     .then(note => {
       newNote.id = note.id
       this.context.addNote(newNote)
-      this.props.history.push(`/folder/${note.folderId}`)
+      this.props.history.push(`/folder/${note.folder_id}`)
       console.log("props", this.props)
     })
     .catch(error => {
