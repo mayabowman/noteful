@@ -4,6 +4,7 @@ import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import NotefulContext from '../NotefulContext'
 import config from '../config' 
 import PropTypes from 'prop-types'
+import { thisExpression } from '@babel/types'
 
 class Note extends React.Component {
   static defaultProps = {
@@ -16,14 +17,13 @@ class Note extends React.Component {
     const id = this.props.id
     fetch(`${config.API_ENDPOINT}/notes/${id}`, {
       method: 'DELETE',
-      headers: {
-        'content-type': 'application/json'
-      }
+      
     })
-    .then(res => {
-      if (!res.ok)
-        return res.json().then(e => Promise.reject(e))
-      return res.json()
+    .then(response => {
+      if (!response.ok) {
+        return response.json().then(error => { throw error })
+      }
+      return
     })
     .then(() => {
       this.context.deleteNote(id)
