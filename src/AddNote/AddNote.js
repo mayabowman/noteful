@@ -21,7 +21,7 @@ handleSubmit = e => {
     content: e.target['note-content'].value
   }
 
-  if(!e.target['note-folder-id'].value) {
+  if (!e.target['note-folder-id'].value) {
     window.alert('Please select a folder')
   } else{
     fetch(`${config.API_ENDPOINT}/notes`, {
