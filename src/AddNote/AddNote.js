@@ -32,8 +32,8 @@ handleSubmit = e => {
       body: JSON.stringify(newNote),
     })
     .then(res => {
-      if(!res.ok)
-        return res.json().then(e => Promise.reject(e))
+      if (!res.ok)
+        return res.json().then(error => { throw error })
       return res.json()
     })
     .then(note => {
