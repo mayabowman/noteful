@@ -9,7 +9,15 @@ class NoteListNav extends React.Component {
   static contextType = NotefulContext
 
   render() {
-    const { folders, notes } = this.context
+    const { folders, notes, noteCount } = this.context
+
+    // const numbers = {}
+    // folders.forEach(folder => {
+    //   console.log(countNotesForFolder(notes, folder.id))
+    //   return numbers[folder.id] = countNotesForFolder(notes, folder.id)
+      
+    // })
+    console.log(noteCount)
     return (
       <div className='NoteListNav'>
         <ul className='NoteListNav__list'>
@@ -20,7 +28,7 @@ class NoteListNav extends React.Component {
                 to={`/folder/${folder.id}`}
               >
                 <span className='NoteListNav__num-notes'>
-                  {countNotesForFolder(notes, folder.id)}
+                  {noteCount[folder.id]}
                 </span>
                 {folder.name}
               </NavLink>

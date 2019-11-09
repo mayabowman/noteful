@@ -10,12 +10,14 @@ import config from '../config'
 import AddFolder from '../AddFolder/AddFolder'
 import AddNote from '../AddNote/AddNote'
 import ErrorBoundary from '../ErrorBoundary'
+import { countNotesForFolder } from '../notes-helpers'
 import '../index.css'
 
 class App extends React.Component {
   state = {
     notes: [],
-    folders: []
+    folders: [],
+    noteCount: {}
   }
 
   componentDidMount() {
@@ -31,7 +33,14 @@ class App extends React.Component {
         return Promise.all([notesRes.json(), foldersRes.json()])
       })
       .then(([notes, folders]) => {
-        this.setState({notes, folders});
+      const numbers = {}
+      folders.forEach(folder => {
+      console.log(countNotesForFolder(notes, folder.id))
+      return numbers[folder.id] = countNotesForFolder(notes, folder.id)
+      
+    })
+      console.log(numbers)
+        this.setState({notes, folders, noteCount: numbers});
       })
       .catch(error => {
         console.error({error});
@@ -51,8 +60,10 @@ class App extends React.Component {
   }
 
   handleAddNote = note => {
+    const newNoteCount = this.state.noteCount[note.folder_id] + 1
+    this.state.noteCount[note.folder_id] = newNoteCount
     this.setState({
-      notes: [...this.state.notes, note]
+      notes: [...this.state.notes, note], noteCount: this.state.noteCount
     })
   }
 
@@ -98,7 +109,8 @@ class App extends React.Component {
       folders: this.state.folders,
       deleteNote: this.handleDeleteNote,
       addFolder: this.handleAddFolder,
-      addNote: this.handleAddNote
+      addNote: this.handleAddNote,
+      noteCount: this.state.noteCount
     };
 
     return (
